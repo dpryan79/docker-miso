@@ -42,7 +42,6 @@ RUN ln -s /usr/share/tomcat7/bin /var/lib/tomcat7/bin && \
     cp /storage/miso/* /storage/.miso/ && \
     cd /storage && chown -R tomcat7:tomcat7 . && \
     ln -s /tmp /var/lib/tomcat7/temp
-#Unclear of the chown is needed
 
 RUN cd /var/lib/tomcat7/webapps && \
     wget --quiet https://repos.tgac.ac.uk/miso/latest/ROOT.war && \
@@ -58,5 +57,4 @@ EXPOSE :8080
 
 VOLUME ["/storage/miso"]
 
-#CMD ["/bin/sleep","100000000"]
 CMD ["/usr/local/bin/startup.sh"]
